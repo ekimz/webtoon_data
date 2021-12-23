@@ -10,7 +10,10 @@ $ pip install webtoon_data
 
 ## Usage
 
-- TODO
+- What are the top ten genres in WEBTOON Originals?
+
+
+- What are the top ten WEBTOON of all time?
 
 ## License
 
