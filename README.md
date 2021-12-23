@@ -10,10 +10,15 @@ $ pip install webtoon_data
 
 ## Usage
 
-- What are the top ten genres in WEBTOON Originals?
+Provide genre list available in WEBTOON.
 
+>> get_webtoon_genre_list
+>> ['Drama', 'Fantasy', 'Comedy', 'Action', 'Slice of life', 'Romance', 'Superhero', 'Sci-fi', 'Thriller', 'Supernatural', 'Mystery', 'Sports', 'Historical', 'Heart-warming', 'Horror', 'Informative']
 
-- What are the top ten WEBTOON of all time?
+What are the top ranking WEBTOON in specified genre?
+
+>> get_webtoon_list_ranking('ROMANCE')
+>> [1320, 1218, 1798, 1436, 1468, 2606, 2832, 218...
 
 ## License
 
