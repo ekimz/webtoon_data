@@ -1,6 +1,6 @@
 # webtoon_data
 
-Python API wrapper for Webtoon data.
+A preliminary attempt at a Python API wrapper for Webtoon data. For obtaining lists of Webtoon titles and rankings.
 
 ## Installation
 
