@@ -1,6 +1,6 @@
 # webtoon_data
 
-Python wrapper for Webtoon data.
+Python API wrapper for Webtoon data.
 
 ## Installation
 
