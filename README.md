@@ -1,6 +1,6 @@
 # webtoon_data
 
-Python wrapper for Webtoon data.
+A preliminary attempt at a Python API wrapper for Webtoon data. For obtaining lists of Webtoon titles and rankings.
 
 ## Installation
 
@@ -10,11 +10,19 @@ $ pip install webtoon_data
 
 ## Usage
 
-- TODO
+Provide genre list available in WEBTOON.
 
-## Contributing
+```
+>>> get_webtoon_genre_list
+>>> ['Drama', 'Fantasy', 'Comedy', 'Action', 'Slice of life', 'Romance', 'Superhero', 'Sci-fi', 'Thriller', 'Supernatural', 'Mystery', 'Sports', 'Historical', 'Heart-warming', 'Horror', 'Informative']
+```
 
-Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+What are the top ranking WEBTOON in specified genre?
+
+```
+>>> get_webtoon_list_ranking('ROMANCE')
+>>> [1320, 1218, 1798, 1436, 1468, 2606, 2832, 218...
+```
 
 ## License
 
