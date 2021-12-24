@@ -1,0 +1,26 @@
+:py:mod:`webtoon_data.webtoon_data`
+===================================
+
+.. py:module:: webtoon_data.webtoon_data
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   webtoon_data.webtoon_data.get_webtoon_genre_list
+   webtoon_data.webtoon_data.get_webtoon_list_ranking
+
+
+
+.. py:function:: get_webtoon_genre_list()
+
+
+.. py:function:: get_webtoon_list_ranking(genre)
+
+
