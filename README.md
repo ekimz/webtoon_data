@@ -24,6 +24,28 @@ What are the top ranking WEBTOON in specified genre?
 >>> [1320, 1218, 1798, 1436, 1468, 2606, 2832, 218...
 ```
 
+What is the title of the first WEBTOON from the list above?
+
+```
+>>> get_webtoon_title(1320)
+>>> 'title of a webtoon'
+```
+
+What is the ranking of the ???
+
+```
+>>> get_webtoon_list_rankings()
+>>> returns a value hold on
+```
+
+Can you give me a recommendation of a WEBTOON to read from the genre I provide?
+
+```
+>>> get_recommendations('ROMANCE')
+>>> just gonna take a second
+```
+
+
 ## License
 
 `webtoon_data` was created by Kim Eunji. It is licensed under the terms of the MIT license.
