@@ -1,12 +1,8 @@
 # webtoon_data
 
-As an avid WEBTOON reader, I was inspired to create a Python wrapper that would display information regarding the top /
-hottest / most relevant WEBTOONs available today. There are two sections on the WEBTOON website or app, Canvas and 
-Originals, which refer to content that is published independently and content that is licensed by WEBTOON respectively.
-The API I found (on RapidAPI; link below) provides access to all listings available on the WEBTOON platform, in both
- Canvas and Original. This python wrapper can create ranked lists of any length by genre, provide recommendations with 
-synopses of recommended titles, and get basic information such as names of the author and illustrator and a list of 
-available genres.
+As an avid WEBTOON reader, I was inspired to create a Python wrapper that would display information regarding the top / hottest / most relevant WEBTOONs available today. There are two sections on the WEBTOON website or app, Canvas and Originals, which refer to content that is published independently and content that is licensed by WEBTOON respectively.
+
+The API I found (on RapidAPI; link below) provides access to all listings available on the WEBTOON platform, in both Canvas and Original. This python wrapper can create ranked lists of any length by genre, provide recommendations with synopses of recommended titles, and get basic information such as names of the author and illustrator and a list of available genres.
 
 API referenced: https://rapidapi.com/apidojo/api/webtoon
 
