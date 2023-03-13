@@ -44,6 +44,29 @@ def get_webtoon_title(num):
     title_json = response_titles_json['message']['result']['titleInfo']['title']
     return title_json
 
+# function for finding the number of a webtoon title that you already know
+def get_webtoon_num(title):
+    url_title = "https://webtoon.p.rapidapi.com/originals/titles/list"
+    headers_title = {
+        'x-rapidapi-host': api_host,
+        'x-rapidapi-key': api_key
+    }
+    querystring_title = {
+        'language': 'en'
+    }
+    # for the list of WEBTOONs
+    response_list = requests.request("GET", url_title, headers=headers_title, params=querystring_title)
+    response_list_json = response_list.json()
+    response_list_df = pd.DataFrame(response_list_json['message']['result']['titleList']['titles'])
+    title_df = response_list_df[response_list_df['title'] == title]
+
+    if title_df.empty:
+        print('I couldn\'t find that title in the list of Originals, please make sure the title is an Original or check your spelling')
+    else:
+        print('The title number for that WEBTOON is ' + str(title_df['titleNo'].iloc[0]) + ', hope that helps! :)')
+
+get_webtoon_num('True Beauty')
+
 
 # Get a list of given genre of top ranked WEBTOONS up to placement stated in count
 # i.e. get_webtoon_list_ranking('ALL', 23) should result in 23 top WEBTOONs across all genres
