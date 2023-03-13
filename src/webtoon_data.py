@@ -21,10 +21,10 @@ def get_webtoon_genre_list():
         'x-rapidapi-key': api_key
     }
 
-    response_gen = requests.request("GET", url, headers=headers, params=querystring)
-    webtoon_gen_json = response_gen.json()
-    webtoon_json_gen_df = pd.DataFrame(webtoon_gen_json['message']['result']['genreList']['genres'])
-    print(webtoon_json_gen_df['name'].tolist())
+    response_gen = requests.request("GET", url, headers=headers, params=querystring)  # get request
+    webtoon_gen_json = response_gen.json()  # turn into .json format
+    webtoon_json_gen_df = pd.DataFrame(webtoon_gen_json['message']['result']['genreList']['genres'])  # into DataFrame
+    print(webtoon_json_gen_df['name'].tolist())  # print list of genres obtained
 
 
 # Get string title of WEBTOON from number ID
@@ -39,9 +39,9 @@ def get_webtoon_title(num):
         "language": "en"
     }
     # for titles
-    response_titles = requests.request("GET", url_title, headers=headers_title, params=querystring_title)
-    response_titles_json = response_titles.json()
-    title_json = response_titles_json['message']['result']['titleInfo']['title']
+    response_titles = requests.request("GET", url_title, headers=headers_title, params=querystring_title)  # get req
+    response_titles_json = response_titles.json()  # into .json format
+    title_json = response_titles_json['message']['result']['titleInfo']['title']  # locate title within json
     return title_json
 
 # function for finding the number of a webtoon title that you already know
@@ -55,18 +55,21 @@ def get_webtoon_num(title):
         'language': 'en'
     }
     # for the list of WEBTOONs
-    response_list = requests.request("GET", url_title, headers=headers_title, params=querystring_title)
-    response_list_json = response_list.json()
-    response_list_df = pd.DataFrame(response_list_json['message']['result']['titleList']['titles'])
-    title_df = response_list_df[response_list_df['title'] == title]
+    response_list = requests.request("GET", url_title, headers=headers_title, params=querystring_title)  # get req
+    response_list_json = response_list.json()  # into .json format
+    response_list_df = pd.DataFrame(response_list_json['message']['result']['titleList']['titles'])  # df of titles
+    title_df = response_list_df[response_list_df['title'] == title]  # create 1-row df corresponding to title
+
+    #( figure out how to ignore case for the title since nobody ever thinks about that)
 
     if title_df.empty:
-        print('I couldn\'t find that title in the list of Originals, please make sure the title is an Original or check your spelling')
+        print('I couldn\'t find that title in the list of Originals, please make sure the title is an Original or '
+              'check your spelling')
     else:
-        print('The title number for that WEBTOON is ' + str(title_df['titleNo'].iloc[0]) + ', hope that helps! :)')
+        print('The title number for (that WEBTOON) is ' + str(title_df['titleNo'].iloc[0]) +
+              ', hope that helps! :)')
 
-get_webtoon_num('True Beauty')
-
+# get_webtoon_num('True Beauty')
 
 # Get a list of given genre of top ranked WEBTOONS up to placement stated in count
 # i.e. get_webtoon_list_ranking('ALL', 23) should result in 23 top WEBTOONs across all genres
@@ -96,8 +99,7 @@ def get_webtoon_list_ranking(genre, count):
         ranked_title_list.append(get_webtoon_title(rank))  # replace number titles with string titles, readability
     return print(ranked_title_list)
 
-
-# get_webtoon_list_ranking('ROMANCE', 3)
+# get_webtoon_list_ranking('ROMANCE', 25)
 
 
 # Provide 3 WEBTOON recommendations based on title provided
@@ -128,4 +130,4 @@ def get_recommendations(title_number):
         print('Here are three WEBTOONs that we recommend if you enjoy ' + get_webtoon_title(title_number) + ':')
         print(all_recs_df)
 
-# get_recommendations(1436)
+get_recommendations(1436)
