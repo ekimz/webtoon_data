@@ -130,4 +130,4 @@ def get_recommendations(title_number):
         print('Here are three WEBTOONs that we recommend if you enjoy ' + get_webtoon_title(title_number) + ':')
         print(all_recs_df)
 
-get_recommendations(1436)
+# get_recommendations(1436)
