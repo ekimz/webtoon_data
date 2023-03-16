@@ -1,13 +1,34 @@
-from configparser import ConfigParser
+import os
 import pandas as pd
 import requests
 import json
 
-# access
+try:
+    # >3.2
+    from configparser import ConfigParser
+except ImportError:
+    # python27
+    # Refer to the older SafeConfigParser as ConfigParser
+    from ConfigParser import SafeConfigParser as ConfigParser
+
 config = ConfigParser()
-config.read('./config.ini') # figuring this out
+
+# get the path to config.ini
+config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.ini')
+
+# check if the path is to a valid file
+if not os.path.isfile(config_path):
+    raise BadConfigError # not a standard python exception
+
+config.read(config_path)
+
 api_host = config.get('api', 'host')
 api_key = config.get('api', 'key')
+
+
+# access
+#config = ConfigParser()
+#config.read('./config.ini') # figuring this out
 
 
 # Get a list of genres available on WEBTOON
